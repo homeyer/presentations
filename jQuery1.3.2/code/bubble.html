@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			#tweets {
+				background: transparent url(../images/bubble.png) no-repeat scroll 0 0;
+				height: 220px;
+				width: 600px;
+				font-family: verdana;
+				position: relative;
+			}
+			#tweets ul {
+				padding: 40px 0 0 45px;
+				width: 480px;
+				list-style: none;
+			}
+			#nav {
+				position: absolute;
+				right: 80px;
+				bottom: 110px;
+			}
+		</style>
+		<script type="text/javascript" src="jquery.min.js"></script>
+		
+		<script type="text/javascript">
+			
+			function buildTweets(tweets){
+				$.each(tweets, function(index, tweet){
+					$('#tweets ul').append('<li style="display:none">'+tweet+'</li>');
+				});
+				
+				$('#tweets li:first').show();
+			}
+			
+			$(document).ready(function(){
+				var url = 'http://twitter.com/statuses/user_timeline/google.json?callback=?&count=6';
+
+				$.getJSON(url, function(data){
+					var tweets = [];
+					$.each(data, function(){
+						tweets.push(this.text);
+					});
+					
+					buildTweets(tweets);
+					
+					
+				});
+				
+				$('#next').click(function(){
+					if($('#tweets li:visible').next('#tweets li').length > 0)
+						$('#tweets li:visible').hide().next('#tweets li').show();
+				});
+				
+				$('#previous').click(function(){
+					if($('#tweets li:visible').prev('#tweets li').length > 0)
+						$('#tweets li:visible').hide().prev('#tweets li').show();
+				});
+				
+			});
+			
+			
+		</script>
+	</head>
+	<body>
+		
+		<div id="tweets">
+			<ul></ul>
+			<div id="nav"><a href="#" id="previous">previous</a> | <a href="#" id="next">next</a></div>
+		</div>
+		
+	</body>
+</html>

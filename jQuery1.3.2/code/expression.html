@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<script type="text/javascript" src="jquery.min.js"></script>
+		
+		<script type="text/javascript">
+			$.expr[":"].green = function(element){
+				return $(element).css('color') == 'green';
+			}
+			
+			$(function(){
+				console.log($(':green'));
+			})
+		</script>
+	</head>
+	<body>
+		
+		<span style="color: green">I'm green</span>
+		<span style="color: #ABC123">I'm not green</span>
+		
+	</body>
+</html>

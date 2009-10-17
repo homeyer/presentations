@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<script type="text/javascript" src="jquery.min.js"></script>
+		
+<script type="text/javascript">
+
+$(function(){
+	
+	$('#slideup').click(function(){
+		$('#box').slideUp();
+	});
+	
+	$('#fadeout').click(function(){
+		$('#box').fadeOut();
+	});
+	
+	$('#fadein').click(function(){
+		$('#box').fadeIn('fast');
+	});
+	
+	$('#custom').click(function(){
+		$('#box').animate({
+			width: '400px',
+			opacity: '.5',
+			borderWidth: '8px',
+		}, 1500);
+	});
+	
+	$('#stop').click(function(){
+		$('#box').stop();
+	});
+	
+	$('#reset').click(function(){
+		$('#box').replaceWith('<div id="box" style="width: 200px; height: 200px; background-color: #336699; border: 2px solid #CCC"></div>');
+	});
+	
+});
+
+</script>
+</head>
+	<body>
+		
+		<div id="box" style="width: 200px; height: 200px; background-color: #336699; border: 2px solid #CCC"></div>
+		<input type="button" value="slide up" id="slideup"/>
+		<input type="button" value="fade out" id="fadeout"/>
+		<input type="button" value="fade in" id="fadein"/>
+		<input type="button" value="custom" id="custom"/>
+		<input type="button" value="stop" id="stop"/>
+		
+		<br/><br/>
+		<input type="button" value="reset" id="reset"/>
+		
+	</body>
+</html>

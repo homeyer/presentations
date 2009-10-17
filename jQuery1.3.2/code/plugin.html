@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<script type="text/javascript" src="jquery.min.js"></script>
+		
+		<script type="text/javascript">
+			
+			(function($){
+				$.fn.pluck = function(attribute){
+					var plucked = [];
+					this.each(function(){
+						plucked.push($(this).attr(attribute));
+					});
+					return plucked;
+				};
+			})(jQuery);
+
+		</script>
+	</head>
+	<body>
+		
+		
+		
+	</body>
+</html>

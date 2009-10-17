@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<title></title>
+		<script type="text/javascript" src="jquery.min.js"></script>
+		
+		<script type="text/javascript">
+			function goGadgetGo(){
+					
+				$('div').filter(function(){
+					return $(this).css('color') == 'green'
+				}).remove().end()
+				.text('no green divs');
+			}
+			
+		</script>
+	</head>
+	<body>
+		
+		<div style="color: red">Red Div</div>
+			<div style="color: green">Green Div</div>
+			<div style="color: green">Another Green Div</div>
+			<div style="color: blue">Blue Div</div>
+		</div>
+		
+		<input type="button" onclick="goGadgetGo();" value="Go"/>
+		
+	</body>
+</html>
